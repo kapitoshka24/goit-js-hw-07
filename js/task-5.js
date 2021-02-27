@@ -4,7 +4,11 @@ const refs = {
 };
 
 function onEnteringName(event) {
-  refs.output.textContent = event.currentTarget.value;
+  const value = event.currentTarget.value;
+
+  value !== " ".repeat(value.length)
+    ? (refs.output.textContent = value)
+    : (refs.output.textContent = "незнакомец");
 }
 
 refs.input.addEventListener("input", onEnteringName);
