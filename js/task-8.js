@@ -21,12 +21,12 @@ function rgb_rand() {
 }
 
 function createBoxes() {
-  let start = 0;
   let amountOfBoxes = [...refs.boxes.children].length;
 
-  amountOfBoxes === 0
-    ? (start = 30)
-    : (start = Number.parseInt(refs.boxes.lastElementChild.style.width) + 10);
+  let start =
+    amountOfBoxes === 0
+      ? 30
+      : Number.parseInt(refs.boxes.lastElementChild.style.width) + 10;
 
   for (let i = 0; i < amount; i += 1) {
     refs.boxes.classList.add("boxes");

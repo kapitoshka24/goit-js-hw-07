@@ -8,9 +8,13 @@ inputRef.addEventListener("input", (event) => {
 });
 
 function onInputOut() {
-  keyLength === inputLengthRef
-    ? inputRef.classList.add("valid")
-    : inputRef.classList.add("invalid");
+  if (keyLength === inputLengthRef) {
+    inputRef.classList.add("valid");
+    inputRef.classList.remove("invalid");
+  } else {
+    inputRef.classList.add("invalid");
+    inputRef.classList.remove("valid");
+  }
 }
 
 inputRef.addEventListener("blur", onInputOut);

@@ -17,19 +17,19 @@ const images = [
 ];
 
 const galleryRef = document.querySelector("#gallery");
+galleryRef.classList.add("gallery-list");
 
 const createGallery = (images) => {
+  const classLi = "gallery__item";
+  const classImg = "gallery__img";
   return images
-    .map(({ url, alt }) => `<li><img src="${url}" alt="${alt}"></li>`)
+    .map(
+      ({ url, alt }) =>
+        `<li class="${classLi}">
+          <img class="${classImg}" src="${url}" alt="${alt}">
+        </li>`
+    )
     .join(" ");
 };
 
 galleryRef.insertAdjacentHTML("beforeend", createGallery(images));
-galleryRef.classList.add("gallery-list");
-
-const itemsRef = galleryRef.children;
-
-[...itemsRef].forEach((elem) => {
-  elem.classList.add("gallery__item");
-  elem.querySelector("img").classList.add("gallery__img");
-});

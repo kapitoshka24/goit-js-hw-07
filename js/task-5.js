@@ -6,9 +6,8 @@ const refs = {
 function onEnteringName(event) {
   const value = event.currentTarget.value;
 
-  value !== " ".repeat(value.length)
-    ? (refs.output.textContent = value)
-    : (refs.output.textContent = "незнакомец");
+  refs.output.textContent =
+    value !== " ".repeat(value.length) ? value : "незнакомец";
 }
 
 refs.input.addEventListener("input", onEnteringName);
